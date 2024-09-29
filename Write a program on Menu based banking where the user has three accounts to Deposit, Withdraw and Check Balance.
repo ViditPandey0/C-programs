@@ -1,0 +1,163 @@
+#include <stdio.h>
+
+void transaction1();
+void transaction2();
+void transaction3();
+void accounts();
+
+int main() {
+    accounts();
+    return 0;
+}
+
+void transaction1() {
+    unsigned int input1;
+    float deposit1, withdraw1, acc1bal = 0;
+    
+    while (1) {
+        printf("Enter 1 to deposit money:\n");
+        printf("Enter 2 to withdraw money:\n");
+        printf("Enter 3 to display money:\n");
+        scanf("%u", &input1);
+        
+        if (input1 == 1) {
+            printf("Enter the amount of money to deposit: ");
+            scanf("%f", &deposit1);
+            if (deposit1 > 0) {
+                acc1bal += deposit1;
+                printf("Money deposited.\n");
+            } else {
+                printf("Invalid input, try again.\n");
+            }
+        } else if (input1 == 2) {
+            printf("Enter the amount of money to withdraw: ");
+            scanf("%f", &withdraw1);
+            if (withdraw1 > 0 && withdraw1 <= acc1bal) {
+                acc1bal -= withdraw1;
+                printf("Withdrawal done.\n");
+            } else {
+                printf("Invalid input.\n");
+            }
+        } else if (input1 == 3) {
+            printf("Your balance in this account is: %.2f\n", acc1bal);
+        } else {
+            printf("Invalid input.\n");
+        }
+        
+        unsigned int accnts;
+        printf("If you want to exit and go back to the main menu enter 1, otherwise enter 2 to continue in the same account: ");
+        scanf("%u", &accnts);
+        if (accnts == 1) {
+            accounts();
+            return;
+        }
+    }
+}
+
+void transaction2() {
+    unsigned int input2;
+    float deposit2, withdraw2, acc2bal = 0;
+
+    while (1) {
+        printf("Enter 1 to deposit money:\n");
+        printf("Enter 2 to withdraw money:\n");
+        printf("Enter 3 to display money:\n");
+        scanf("%u", &input2);
+        
+        if (input2 == 1) {
+            printf("Enter the amount of money to deposit: ");
+            scanf("%f", &deposit2);
+            if (deposit2 > 0) {
+                acc2bal +=deposit2;
+                printf("Money deposited.\n");
+            } else {
+                printf("Invalid input, try again.\n");
+            }
+        } else if (input2 == 2) {
+            printf("Enter the amount of money to withdraw: ");
+            scanf("%f", &withdraw2);
+            if (withdraw2 > 0 && withdraw2 <= acc2bal) {
+                acc2bal -= withdraw2;
+                printf("Withdrawal done.\n");
+            } else {
+                printf("Invalid input.\n");
+            }
+        } else if (input2 == 3) {
+            printf("Your balance in this account is: %.2f\n", acc2bal);
+        } else {
+            printf("Invalid input.\n");
+        }
+
+        unsigned int accnts;
+        printf("If you want to exit and go back to the main menu enter 1, otherwise enter 2 to continue in the same account: ");
+        scanf("%u", &accnts);
+        if (accnts == 1) {
+            accounts();
+            return;
+        }
+    }
+}
+
+void transaction3() {
+    unsigned int input3;
+    float deposit3, withdraw3, acc3bal = 0;
+
+    while (1) {
+        printf("Enter 1 to deposit money:\n");
+        printf("Enter 2 to withdraw money:\n");
+        printf("Enter 3 to display money:\n");
+        scanf("%u", &input3);
+        
+        if (input3 == 1) {
+            printf("Enter the amount of money to deposit: ");
+            scanf("%f", &deposit3);
+            if (deposit3 > 0) {
+                acc3bal += deposit3;
+                printf("Money deposited.\n");
+            } else {
+                printf("Invalid input, try again.\n");
+            }
+        } else if (input3 == 2) {
+            printf("Enter the amount of money to withdraw: ");
+            scanf("%f", &withdraw3);
+            if (withdraw3 > 0 && withdraw3 <= acc3bal) {
+                acc3bal -= withdraw3;
+                printf("Withdrawal done.\n");
+            } else {
+                printf("Invalid input.\n");
+            }
+        } else if (input3 == 3) {
+            printf("Your balance in this account is: %.2f\n", acc3bal);
+        } else {
+            printf("Invalid input.\n");
+        }
+
+        unsigned int accnts;
+        printf("If you want to exit and go back to the main menu enter 1, otherwise enter 2 to continue in the same account: ");
+        scanf("%u", &accnts);
+        if (accnts == 1) {
+            accounts();
+            return;
+        }
+    }
+}
+
+void accounts() {
+    int accno;
+    printf("Choose an account to continue\n");
+    printf("Choose 1 for your 1st account,\n");
+    printf("Choose 2 for your 2nd account,\n");
+    printf("Choose 3 for your 3rd account: ");
+    scanf("%d", &accno);
+    
+    if (accno == 1) {
+        transaction1();
+    } else if (accno == 2) {
+        transaction2();
+    } else if (accno == 3) {
+        transaction3();
+    } else {
+        printf("Invalid input\n");
+        accounts();
+    }
+}
